@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}html{background:#071230}body{margin:0}</style>
+<title>Qurban İbrahimovun Ad Günü</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: night-stadium page. Hero headline with a countdown to the birthday, then three back-of-jersey numbers (17, 19, 22) in a row that wraps, a goal button with confetti, and a short letter signed by the sender. */
+:root {
+  color-scheme: dark;
+  --night: #071230;
+  --deep: #0d1f4d;
+  --royal: #2557e8;
+  --royal-dark: #1a3fb0;
+  --sky: #8fc0ff;
+  --chalk: #eef3ff;
+  --flare: #ffd23f;
+  --muted: #a9b8dd;
+  --line: rgba(143, 192, 255, 0.22);
+  --display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--night);
+  background-image:
+    radial-gradient(ellipse at 50% -10%, rgba(37, 87, 232, 0.45), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(37, 87, 232, 0.07) 0 4rem, transparent 4rem 8rem);
+  color: var(--chalk);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100%;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  padding-block: 2rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.hero {
+  position: relative;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-block: 1rem 0.5rem;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 34rem;
+  max-width: 120vw;
+  aspect-ratio: 1;
+  right: -14rem;
+  top: -10rem;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -14rem;
+  top: -10rem;
+  width: 34rem;
+  max-width: 120vw;
+  height: 100%;
+  border-left: 2px solid var(--line);
+  transform: translateX(17rem);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3.4rem, 15vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+h1 span { color: var(--sky); }
+
+.count { display: flex; flex-direction: column; gap: 0.6rem; max-width: 26rem; }
+.label {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cells {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.cells div {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.5rem 0.4rem;
+  border-top: 3px solid var(--royal);
+}
+.cells span {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 11vw, 3.6rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.cells small { color: var(--muted); font-size: 0.8rem; }
+.done {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  line-height: 1.05;
+  color: var(--flare);
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.9rem, 6vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+
+.numbers { display: flex; flex-direction: column; gap: 1.5rem; }
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem 1.5rem;
+}
+.jersey { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+.jersey svg { width: 100%; max-width: 15rem; height: auto; display: block; }
+.jersey figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line);
+  max-width: 20rem;
+}
+.jersey figcaption b {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--sky);
+}
+.jersey figcaption span { color: var(--chalk); }
+
+.shirt-body { fill: url(#shirtGrad); }
+.shirt-trim { fill: none; stroke: var(--sky); stroke-width: 6; stroke-linecap: round; }
+.shirt-shade { fill: rgba(7, 18, 48, 0.18); }
+.jname { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: 0.14em; fill: var(--chalk); }
+.jnum { font-family: var(--display); font-weight: 900; font-size: 92px; fill: var(--chalk); }
+
+.goal { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.goal button {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  background: var(--flare);
+  color: var(--night);
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 2rem;
+  min-height: 3.25rem;
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+.goal button:hover { background: #ffe07a; }
+.goal button:active { transform: translateY(2px) scale(0.98); }
+.goal button:focus-visible { outline: 3px solid var(--chalk); outline-offset: 3px; }
+.goal p { margin: 0; color: var(--muted); }
+.goal p.hit {
+  color: var(--flare);
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.letter { display: flex; flex-direction: column; gap: 1.1rem; max-width: 38rem; }
+.letter p { margin: 0; font-size: 1.1rem; }
+.sign { font-weight: 700; color: var(--sky); }
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .goal button { transition: none; }
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="shirtGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f63f2"/>
+      <stop offset="1" stop-color="#1a3fb0"/>
+    </linearGradient>
+    <symbol id="shirt" viewBox="0 0 200 220">
+      <path class="shirt-body" d="M62 8 L22 30 L0 92 L36 106 L46 86 L46 212 L154 212 L154 86 L164 106 L200 92 L178 30 L138 8 C128 30 72 30 62 8 Z"/>
+      <path class="shirt-shade" d="M154 86 L154 212 L120 212 L120 30 C128 30 134 22 138 8 L178 30 L200 92 L164 106 Z"/>
+      <path class="shirt-trim" d="M62 8 C72 30 128 30 138 8"/>
+      <path class="shirt-trim" d="M0 92 L36 106"/>
+      <path class="shirt-trim" d="M200 92 L164 106"/>
+    </symbol>
+  </defs>
+</svg>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<main class="wrap" lang="az">
+  <header class="hero">
+    <p class="eyebrow">14 oktyabr · Qarabağ futbolçusu</p>
+    <h1>Ad günün <span>mübarək,</span> Qurban!</h1>
+    <section class="count" aria-label="Ad gününə qalan vaxt">
+      <p class="label" id="cdLabel">Ad gününə qalan vaxt</p>
+      <div class="cells" id="cd">
+        <div><span id="d">00</span><small>gün</small></div>
+        <div><span id="h">00</span><small>saat</small></div>
+        <div><span id="m">00</span><small>dəqiqə</small></div>
+        <div><span id="s">00</span><small>saniyə</small></div>
+      </div>
+      <p class="done" id="done" hidden>Gün gəldi. Ad günün mübarək!</p>
+    </section>
+  </header>
+
+  <section class="numbers">
+    <h2>Üç nömrə, bir futbolçu</h2>
+    <div class="row">
+      <figure class="jersey">
+        <svg viewBox="0 0 200 220" role="img" aria-label="Göy forma, 17 nömrəsi">
+          <use href="#shirt"/>
+          <text class="jname" x="100" y="68" text-anchor="middle">İBRAHİMOV</text>
+          <text class="jnum" x="100" y="166" text-anchor="middle">17</text>
+        </svg>
+        <figcaption><b>17</b><span>Sürətin hər oyunda bir az da artsın.</span></figcaption>
+      </figure>
+      <figure class="jersey">
+        <svg viewBox="0 0 200 220" role="img" aria-label="Göy forma, 19 nömrəsi">
+          <use href="#shirt"/>
+          <text class="jname" x="100" y="68" text-anchor="middle">İBRAHİMOV</text>
+          <text class="jnum" x="100" y="166" text-anchor="middle">19</text>
+        </svg>
+        <figcaption><b>19</b><span>Meydana çıxanda tribunalar adını səsləsin.</span></figcaption>
+      </figure>
+      <figure class="jersey">
+        <svg viewBox="0 0 200 220" role="img" aria-label="Göy forma, 22 nömrəsi">
+          <use href="#shirt"/>
+          <text class="jname" x="100" y="68" text-anchor="middle">İBRAHİMOV</text>
+          <text class="jnum" x="100" y="166" text-anchor="middle">22</text>
+        </svg>
+        <figcaption><b>22</b><span>Ən vacib qollar sənin ayağından gəlsin.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="goal">
+    <h2>Ad günü qolu</h2>
+    <button type="button" id="goalBtn">Qol vur</button>
+    <p id="goalText" aria-live="polite">Düyməyə bas və topu torlara göndər.</p>
+  </section>
+
+  <section class="letter">
+    <h2>Dostundan</h2>
+    <p>Qurban, ad günün mübarək! Göy formada meydana çıxdığın hər an üçün səninlə fəxr edirəm.</p>
+    <p>Yeni yaşında sağlamlığın yerində olsun, hər oyundan qələbə sevinci ilə qayıdasan. 17, 19 və 22 nömrələri həmişə sənə uğur gətirsin.</p>
+    <p>Dostluğumuz da komanda ruhu kimi möhkəm qalsın.</p>
+    <p class="sign">Dostun Mübariz</p>
+  </section>
+</main>
+
+<script>
+(function () {
+  var BDAY_MONTH = 9, BDAY_DAY = 14, BAKU_HOURS = 4, DAY_MS = 86400000;
+  function bdayStart(year) { return Date.UTC(year, BDAY_MONTH, BDAY_DAY, -BAKU_HOURS, 0, 0); }
+  var firstStart = bdayStart(2026);
+  var els = {
+    d: document.getElementById('d'),
+    h: document.getElementById('h'),
+    m: document.getElementById('m'),
+    s: document.getElementById('s'),
+    cd: document.getElementById('cd'),
+    done: document.getElementById('done')
+  };
+  var labelEl = document.getElementById('cdLabel');
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var now = Date.now();
+    var year = new Date(now + BAKU_HOURS * 3600000).getUTCFullYear();
+    var start = bdayStart(year);
+    if (now >= start && now < start + DAY_MS) {
+      els.cd.hidden = true;
+      labelEl.hidden = true;
+      els.done.hidden = false;
+      return;
+    }
+    var target = now < start ? start : bdayStart(year + 1);
+    els.cd.hidden = false;
+    labelEl.hidden = false;
+    els.done.hidden = true;
+    labelEl.textContent = now < firstStart ? 'Ad gününə qalan vaxt' : 'Növbəti ad gününə qalan vaxt';
+    var total = Math.floor((target - now) / 1000);
+    els.d.textContent = pad(Math.floor(total / 86400));
+    els.h.textContent = pad(Math.floor((total % 86400) / 3600));
+    els.m.textContent = pad(Math.floor((total % 3600) / 60));
+    els.s.textContent = pad(total % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  var cv = document.getElementById('confetti');
+  var ctx = cv.getContext('2d');
+  var parts = [];
+  var raf = 0;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var colors = ['#2557e8', '#8fc0ff', '#eef3ff', '#ffd23f'];
+
+  function size() {
+    cv.width = window.innerWidth;
+    cv.height = window.innerHeight;
+  }
+  function loop() {
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    var alive = false;
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.vy += 0.35;
+      p.vx *= 0.99;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.r += p.vr;
+      if (p.y < cv.height + 30) {
+        alive = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.r);
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+    }
+    if (alive) { raf = requestAnimationFrame(loop); }
+    else { ctx.clearRect(0, 0, cv.width, cv.height); raf = 0; }
+  }
+  function fire() {
+    size();
+    parts = [];
+    for (var i = 0; i < 180; i++) {
+      parts.push({
+        x: cv.width / 2 + (Math.random() - 0.5) * cv.width * 0.3,
+        y: cv.height * 0.62,
+        vx: (Math.random() - 0.5) * 16,
+        vy: -Math.random() * 17 - 6,
+        w: 6 + Math.random() * 6,
+        h: 10 + Math.random() * 8,
+        r: Math.random() * 6.28,
+        vr: (Math.random() - 0.5) * 0.4,
+        c: colors[i % colors.length]
+      });
+    }
+    if (raf) { cancelAnimationFrame(raf); }
+    loop();
+  }
+
+  var msgs = ['Qooool! Ad günün mübarək!', 'Yenə qol! Tribunalar ayaqdadır!', 'Hat-trik! Sən bunu bacarırsan!'];
+  var count = 0;
+  var text = document.getElementById('goalText');
+  document.getElementById('goalBtn').addEventListener('click', function () {
+    text.className = 'hit';
+    text.textContent = msgs[count % msgs.length];
+    count++;
+    if (!reduce) { fire(); }
+  });
+})();
+</script>
+</body>
+</html>
